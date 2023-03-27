@@ -18,6 +18,7 @@ my-app/.env.local
 my-app/.env.development.local
 my-app/.env.test.local
 my-app/.env.production.local
+my-app/package-lock.json
 
 my-app/npm-debug.log*
 my-app/yarn-debug.log*
