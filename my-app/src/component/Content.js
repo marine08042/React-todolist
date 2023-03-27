@@ -7,7 +7,6 @@ function Content() {
     <div className='d-flex  flex-column align-items-center'>
       <Item />
       <Item />
-      <Item />
     </div>
       
     </>
