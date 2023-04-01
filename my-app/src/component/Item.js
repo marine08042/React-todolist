@@ -1,8 +1,11 @@
 import React from 'react'
 
-function Item() {
+function Item(props) {
+    const {value}=props
   return (
-    <div>Item</div>
+    <>
+      <li>{value}</li>
+    </>
   )
 }
 
