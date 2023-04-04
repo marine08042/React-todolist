@@ -1,17 +1,22 @@
 import './App.css';
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import Content from './component/Content';
-import Control from './component/Control';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Navbar from './component/Navbar';
+import Index from './page/Index';
+import Add from './page/Add';
 
 
 function App() {
   return (
     <>
-    <div className="container mt-5">
-      <h2 className='ms-3 text-center mb-5'>TODO List</h2>
-        <Control />
-        <Content />
-    </div>
+    <Router>
+    <Navbar />
+      <Routes>
+        <Route index element={<Index/>} />
+        <Route path="/add" element={<Add />} />
+      </Routes>
+    </Router>
+    
     </>
   );
 }
