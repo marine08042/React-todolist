@@ -1,4 +1,29 @@
+body {
+  background-color: rgb(222, 227, 238);
+}
+/** navbar */
+.navbar {
+  background-color: rgb(175, 186, 207);
+}
+
 .line {
   text-decoration: line-through;
   color: darkgray;
+}
+
+.banner {
+  color: #fff;
+  background-image: url("../../img/banner1.jpeg");
+  background-size: cover;
+  background-position: 0px -100px;
+  background-repeat: no-repeat;
+  height: 60vh;
+  /* object-fit: cover; */
+}
+
+.banner-title {
+  font-size: 2rem;
+  padding: 5px 30px;
+  border-radius: 50px;
+  background-color: rgba(222, 227, 238, 0.5);
 }
