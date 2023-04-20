@@ -1,30 +1,52 @@
-import React from "react";
+import React,{useState} from 'react'
+import { Link,useNavigate } from 'react-router-dom'
+import firebase from "../utils/firebase";
+import "firebase/auth"
 
 function Login() {
+  const [email,setEmail]=useState('')
+    const [password,setPassword]=useState('')
+    const navigate = useNavigate()
+
+    function onSubmit(){
+      console.log(email, password)
+        firebase.auth().signInWithEmailAndPassword(email,password).then(()=>{
+            // alert('註冊成功')
+            // navigate('/')
+            console.log('登入成功')
+        }).catch(function(error) {
+          console.log('error')
+        })
+    }
   return (
     <>
-      <form className="w-50 px-4 py-5 login">
+      <form className="w-50 px-4 py-5 login" onSubmit={onSubmit}>
         <div className="mb-3">
-          <label for="exampleInputEmail1" className="form-label">
+          <label htmlFor="exampleInputEmail1" className="form-label">
             帳號
           </label>
           <input
             type="email"
             className="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
+            id="email"
+            value={email}
+            onChange={(e)=>setEmail(e.target.value)}
+            required
           />
           <div className="form-text">
           </div>
         </div>
         <div className="mb-3">
-          <label for="exampleInputPassword1" className="form-label">
+          <label htmlFor="exampleInputPassword1" className="form-label">
             密碼
           </label>
           <input
             type="password"
             className="form-control"
-            id="exampleInputPassword1"
+            id="password"
+            value={password}
+            onChange={(e)=>setPassword(e.target.value)}
+            required
           />
           <div className="form-text">
           </div>

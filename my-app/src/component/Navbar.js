@@ -27,6 +27,11 @@ function Navbar() {
                   新增
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/Signin">
+                  登入/註冊
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

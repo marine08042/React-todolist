@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 function Control() {
   const [list, setList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
+  const [detail,setDetail]=useState('')
   // let todoValue = ''
 
   const onAdd = (value) => {
@@ -12,10 +13,15 @@ function Control() {
     setList(newArray);
     setTodoValue("");
   };
-  const handleChange = (event) => {
+  const todoChange = (event) => {
     const value = event.target.value;
     // console.log(value)
     setTodoValue(value);
+  };
+  const detailChange = (event) => {
+    const value = event.target.value;
+    // console.log(value)
+    setDetail(value);
   };
   useEffect(() => {
     console.log(list);
@@ -32,7 +38,7 @@ function Control() {
           <input
             type="text"
             value={todoValue}
-            onChange={handleChange}
+            onChange={todoChange}
             className="form-control"
             name="title"
           />
@@ -41,7 +47,7 @@ function Control() {
           <label htmlFor="title" className="form-label">
             詳細事項
           </label>
-          <textarea class="form-control" rows="3"></textarea>
+          <textarea class="form-control" rows="3" value={detail} onChange={detailChange}></textarea>
         </div>
         <div class="mb-3">
           <label htmlFor="title" className="form-label">
