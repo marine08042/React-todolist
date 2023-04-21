@@ -4,23 +4,22 @@ import firebase from "../utils/firebase";
 import "firebase/auth";
 
 function Register() {
-  const [email, setEmail] = useState();
-  const [password, setPassword] = useState();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  function onSubmit() {
-    // firebase.auth().createUserWithEmailAndPassword(email,password).then(()=>{
-    //     // alert('註冊成功')
-    //     navigate('/')
-    // })
+  function onSubmit(e) {
+    e.preventDefault();
+    console.log('submit');
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         console.log(result);
+        navigate('/')
       })
       .catch(function (error) {
-        console.log(error.message);
+        console.log('error');
       });
   }
   return (

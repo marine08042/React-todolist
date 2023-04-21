@@ -8,12 +8,13 @@ function Login() {
     const [password,setPassword]=useState('')
     const navigate = useNavigate()
 
-    function onSubmit(){
+    function onSubmit(e){
+      e.preventDefault();
       console.log(email, password)
         firebase.auth().signInWithEmailAndPassword(email,password).then(()=>{
-            // alert('註冊成功')
-            // navigate('/')
-            console.log('登入成功')
+            alert('登入成功')
+            navigate('/')
+            // console.log('登入成功')
         }).catch(function(error) {
           console.log('error')
         })
