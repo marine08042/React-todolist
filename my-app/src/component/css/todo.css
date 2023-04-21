@@ -34,5 +34,15 @@ body {
 
 /** signin */
 section {
-  height: 75vh;
+  min-height: 75vh;
+}
+
+.register {
+  border: 2px solid rgba(131, 139, 154, 0.206);
+  border-radius: 10px;
+}
+
+.login {
+  border: 2px solid rgba(131, 139, 154, 0.206);
+  border-radius: 10px;
 }

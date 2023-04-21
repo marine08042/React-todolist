@@ -7,24 +7,38 @@ function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [errorMsg, setErrorMsg] = useState("");
 
   function onSubmit(e) {
     e.preventDefault();
-    console.log('submit');
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result);
+        // TODO 彈出視窗
+        alert("註冊成功");
         navigate('/')
       })
       .catch(function (error) {
-        console.log('error');
+        switch (error.code) {
+          case "auth/email-already-in-use":
+            setErrorMsg("信箱已存在");
+            break;
+          case "auth/invalid-email":
+            setErrorMsg("信箱格式不正確");
+            break;
+          case "auth/weak-password":
+            setErrorMsg("密碼長度不足六碼");
+            break;
+          default:
+        }
       });
   }
   return (
     <>
-      <form className="w-50 px-4 py-5 login" onSubmit={onSubmit}>
+    <section className="d-flex flex-column align-items-center">
+    <h3 className="mt-5">註冊帳號</h3>
+    <form className="w-50 px-4 py-5 register mt-3" onSubmit={onSubmit}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
             帳號
@@ -51,12 +65,15 @@ function Register() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <div className="form-text"></div>
+            
         </div>
-        <button type="submit" className="btn btn-primary">
+        {errorMsg && <div className="alert alert-danger mt-4 py-2" role="alert">{errorMsg}</div>}
+        <button type="submit" className="btn btn-outline-primary">
           註冊
         </button>
       </form>
+    </section>
+      
     </>
   );
 }

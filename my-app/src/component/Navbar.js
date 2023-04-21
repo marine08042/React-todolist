@@ -43,7 +43,7 @@ function Navbar() {
             </>):(
               <li className="nav-item">
                 <Link className="nav-link"to="/Signin">
-                  登入/註冊
+                  登入
                 </Link>
               </li>
             )}
