@@ -6,6 +6,10 @@ body {
   background-color: rgb(175, 186, 207);
 }
 
+.navbar-nav {
+  width: 100%;
+}
+
 .line {
   text-decoration: line-through;
   color: darkgray;
@@ -26,4 +30,9 @@ body {
   padding: 5px 30px;
   border-radius: 50px;
   background-color: rgba(222, 227, 238, 0.5);
+}
+
+/** signin */
+section {
+  height: 75vh;
 }
