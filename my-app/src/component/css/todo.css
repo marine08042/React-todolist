@@ -1,8 +1,29 @@
 body {
   background-color: rgb(222, 227, 238);
 }
+
+.t-primary {
+  color: rgba(50, 66, 97, 1);
+}
+
+.t-bg-primary {
+  background-color: rgba(50, 66, 97, 1);
+}
+
+.t-bg-lightPri {
+  background-color: rgb(222, 227, 238);
+}
+
+.t-gray {
+  color: rgba(126, 140, 166, 1);
+}
+
+.flex-grow-2 {
+  flex-grow: 2;
+}
+
 /** navbar */
-.navbar {
+.navbar-color {
   background-color: rgb(175, 186, 207);
 }
 
@@ -10,9 +31,26 @@ body {
   width: 100%;
 }
 
-.line {
+.line-red,
+.line-blue,
+.line-green,
+.line-yellow {
   text-decoration: line-through;
-  color: darkgray;
+  text-decoration-thickness: 2px;
+  color: darkgray !important;
+}
+
+.line-red {
+  text-decoration-color: rgb(200, 87, 87);
+}
+.line-blue {
+  text-decoration-color: rgba(99, 122, 191, 1);
+}
+.line-green {
+  text-decoration-color: rgba(99, 206, 122, 1);
+}
+.line-yellow {
+  text-decoration-color: rgb(230, 168, 10);
 }
 
 .banner {
@@ -45,4 +83,180 @@ section {
 .login {
   border: 2px solid rgba(131, 139, 154, 0.206);
   border-radius: 10px;
+}
+
+/** todolist */
+.t-btn {
+  padding: 0.4rem 1.2rem;
+  border-radius: 30px;
+  border: 4px solid rgba(175, 186, 207, 1);
+  background-color: #fff;
+  font-weight: 500;
+  color: rgba(50, 66, 97, 1);
+  transition: 0.3s;
+}
+
+.t-btn:hover {
+  background-color: rgba(255, 214, 109, 1);
+  border: 4px solid rgba(207, 170, 73, 1);
+}
+
+.weekend-btn {
+  font-weight: 600;
+  color: rgba(126, 140, 166, 1);
+  transition: 0.3s;
+}
+
+.weekend-btn:hover {
+  color: rgba(50, 66, 97, 1);
+}
+
+.calender li {
+  width: 14.2857142857143%;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 600;
+}
+
+.wrap {
+  background-color: #fff;
+  padding: 1rem;
+  border-radius: 10px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.wrap-sm {
+  padding: 0.4rem 0.8rem;
+  background-color: #fff;
+  border: 3px solid #fff;
+  border-radius: 10px;
+}
+.wrap-sm:hover {
+  border: 3px solid rgba(236, 126, 126, 1);
+}
+
+.date {
+  color: rgba(50, 66, 97, 1);
+  font-weight: 600;
+  margin-bottom: 0.2rem;
+}
+
+.word-red {
+  color: rgba(236, 126, 126, 1);
+}
+.word-blue {
+  color: rgba(99, 122, 191, 1);
+}
+.word-green {
+  color: rgba(99, 206, 122, 1);
+}
+.word-yellow {
+  color: rgba(207, 170, 73, 1);
+}
+
+.red,
+.green,
+.blue,
+.yellow {
+  display: flex;
+  flex-direction: column;
+  margin-right: 0.2rem;
+  align-content: space-between;
+}
+
+.red .todo-check {
+  border: 2px solid rgba(236, 126, 126, 1);
+}
+
+.red .todo-check:checked {
+  background-color: rgba(236, 126, 126, 1);
+}
+
+.green .todo-check {
+  border: 2px solid rgba(99, 206, 122, 1);
+}
+
+.green .todo-check:checked {
+  background-color: rgba(99, 206, 122, 1);
+}
+
+.blue .todo-check {
+  border: 2px solid rgba(99, 122, 191, 1);
+}
+
+.blue .todo-check:checked {
+  background-color: rgba(99, 122, 191, 1);
+}
+
+.yellow .todo-check {
+  border: 2px solid rgba(255, 214, 109, 1);
+}
+
+.yellow .todo-check:checked {
+  background-color: rgba(255, 214, 109, 1);
+}
+
+.todo-check {
+  width: 1em;
+  height: 1em;
+  background-color: white;
+  border-radius: 50%;
+  vertical-align: middle;
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 1200px) {
+  .w-xl-25 {
+    width: 25% !important;
+  }
+}
+
+/** Control */
+
+.submit {
+  background-color: rgb(222, 227, 238);
+}
+
+.submit:hover {
+  background-color: rgb(175, 186, 207);
+}
+
+.radio-r,
+.radio-b,
+.radio-g,
+.radio-y {
+  margin-right: 0.6rem;
+  transform: scale(1.5);
+}
+
+.radio-r {
+  accent-color: rgb(200, 87, 87);
+}
+
+.radio-b {
+  accent-color: rgba(99, 122, 191, 1);
+}
+.radio-g {
+  accent-color: rgb(91, 163, 107);
+}
+.radio-y {
+  accent-color: rgb(180, 131, 17);
+}
+
+/** Daysm */
+.month-other {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(222, 227, 238, 0.8);
 }
