@@ -9,8 +9,10 @@ function Content(props) {
       <div className="d-flex">
         <div>
           <ul className="d-flex  flex-column align-items-start list-unstyled">
-            {list &&
-              list.map((item) => <Item key={item.id} value={item.value} />)}
+          {list &&
+              list.map((item) => (
+                <Item key={item.id} value={item.value} color={item.color} />
+              ))}
           </ul>
         </div>
       </div>
