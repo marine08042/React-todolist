@@ -44,11 +44,6 @@ function Navbar() {
               </ul>
               <ul className="navbar-nav ml-auto mb-2 mb-lg-0 d-flex justify-content-end">
               <li className="nav-item">
-                <Link className="nav-link" to="/User">
-                  User
-                </Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link"  onClick={signOut}>
                   登出
                 </Link>

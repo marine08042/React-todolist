@@ -46,13 +46,14 @@ function Todolist() {
             <h5 className='mx-1'>{year}<span className='fs-1 ms-2'>{month}</span>月</h5>
             <div className='mx-1 t-gray' onClick={nextMonth}><BsCaretRightFill/></div>
         </div>
-        <div>
+        {/* <div>
             <button className='t-btn' onClick={toggleshow}>{isMonth ? "以月份顯示" : "以週顯示"}</button>
-        </div>
+        </div> */}
         
     </div>
     <div className="mb-5">
-      {isMonth ? <Weekend />: <Month date={date} setDate={setDate}/> }
+      <Month date={date} setDate={setDate}/>
+      {/* {isMonth ? <Weekend />: <Month date={date} setDate={setDate}/> } */}
     </div>
     
     </>

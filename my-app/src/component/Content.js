@@ -6,7 +6,7 @@ function Content(props) {
   const { list } = props;
   return (
     <>
-      <div className="d-flex">
+      <div className="d-flex text-decoration-none">
         <div>
           <ul className="d-flex  flex-column align-items-start list-unstyled">
           {list &&
