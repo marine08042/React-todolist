@@ -21,7 +21,7 @@ function Navbar() {
   return (
     <>
     <div className="container-fluid navbar-color">
-    <nav className="navbar navbar-expand bg-body-tertiary mb-5 container">
+    <nav className="navbar navbar-expand bg-body-tertiary container">
         <div className="container-fluid">
           <Link className="navbar-brand" to="/">
             TODO
