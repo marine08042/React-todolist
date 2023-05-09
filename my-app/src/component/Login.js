@@ -12,8 +12,7 @@ function Login() {
   function onSubmit(e) {
     e.preventDefault();
     console.log(email, password);
-    firebase
-      .auth()
+    firebase.auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
         // TODO 彈出視窗

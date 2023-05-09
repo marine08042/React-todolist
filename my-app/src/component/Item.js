@@ -3,7 +3,7 @@ import './css/todo.css'
 
 function Item(props) {
   const [isChecked,setIsChecked]=useState(false)
-  const { value,color } = props;
+  const { value,color,thing } = props;
   function handleChange(){
     setIsChecked(!isChecked)
   }

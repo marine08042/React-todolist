@@ -2,12 +2,17 @@ import React, { useState, useEffect } from "react";
 import Content from "./Content";
 import { v4 as uuidv4 } from "uuid";
 
-function Control() {
+function Control(props) {
   const [list, setList] = useState([]);
   const [todoValue, setTodoValue] = useState("");
-  const [detail,setDetail]=useState('')
   const [color,setColor]=useState('red')
   const colorName = `color-${uuidv4()}`;
+  const{listData}=props
+  console.log(list);
+
+  useEffect(()=>{
+    setList(listData);
+  },[])
 
   const onAdd = (value) => {
     const newItem = { id: uuidv4(), value: value, color: color };
@@ -19,11 +24,6 @@ function Control() {
   const todoChange = (event) => {
     const value = event.target.value;
     setTodoValue(value);
-  };
-
-  const detailChange = (event) => {
-    const value = event.target.value;
-    setDetail(value);
   };
 
   const colorChange=(event)=>{

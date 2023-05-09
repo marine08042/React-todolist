@@ -11,8 +11,7 @@ function Register() {
 
   function onSubmit(e) {
     e.preventDefault();
-    firebase
-      .auth()
+    firebase.auth()
       .createUserWithEmailAndPassword(email, password)
       .then((result) => {
         // TODO 彈出視窗

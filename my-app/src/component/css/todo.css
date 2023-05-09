@@ -18,8 +18,81 @@ body {
   color: rgba(126, 140, 166, 1);
 }
 
+.t-bg-index {
+  background-color: rgb(49, 69, 129);
+}
+
 .flex-grow-2 {
   flex-grow: 2;
+}
+
+/** index  */
+
+.banner {
+  color: #fff;
+  background-image: url("../../img/banner1.jpeg");
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 70vh;
+  /* object-fit: cover; */
+}
+
+.banner-title {
+  font-size: 2rem;
+  padding: 5px 30px;
+  border-radius: 50px;
+  background-color: rgba(222, 227, 238, 0.8);
+  border: none;
+  transition: 0.3s;
+}
+
+.banner-title:hover {
+  background-color: rgba(255, 214, 109, 1);
+}
+
+.t-card {
+  display: none;
+  margin: -80px 2rem 0;
+  padding: 1.4rem 2rem;
+  background-color: #fff;
+  border-radius: 15px;
+}
+
+.zoomIn {
+  display: block !important;
+  animation: zoomIn;
+  animation-duration: 0.5s;
+}
+
+.card-flip:hover .flip,
+.card-flip.hover .flip {
+  transform: rotateY(180deg);
+}
+.card-flip,
+.front,
+.back {
+  width: 13rem;
+  height: 9rem;
+}
+.flip {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.front,
+.back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.back {
+  transform: rotateY(180deg);
 }
 
 /** navbar */
@@ -51,23 +124,6 @@ body {
 }
 .line-yellow {
   text-decoration-color: rgb(230, 168, 10);
-}
-
-.banner {
-  color: #fff;
-  background-image: url("../../img/banner1.jpeg");
-  background-size: cover;
-  background-position: 0px -100px;
-  background-repeat: no-repeat;
-  height: 60vh;
-  /* object-fit: cover; */
-}
-
-.banner-title {
-  font-size: 2rem;
-  padding: 5px 30px;
-  border-radius: 50px;
-  background-color: rgba(222, 227, 238, 0.5);
 }
 
 /** signin */
@@ -233,6 +289,11 @@ section {
     padding: 0.4rem 0.8rem;
     height: 110px;
   }
+}
+
+/** Month  */
+.loader rect {
+  fill: rgba(50, 66, 97, 1);
 }
 
 /** Control */

@@ -10,19 +10,14 @@ function DaySm(props) {
                 <div className="date">{date}</div>
                 <div className="d-md-flex d-none justify-content-between">
                     <div className="red">
-                        <input type="checkbox" className='todo-check'/>
+                        
                     </div>
                     <div className="blue">
                         <input type="checkbox" className='todo-check'/>
                     </div>
                         <div className="green">
-                        <input type="checkbox" className='todo-check'/>
-                        <input type="checkbox" className='todo-check'/>
-                        <input type="checkbox" className='todo-check'/>
-                        <input type="checkbox" className='todo-check'/>
                     </div>
                     <div className="yellow">
-                        <input type="checkbox" className='todo-check'/>
                     </div>
                 </div>
             </div>
