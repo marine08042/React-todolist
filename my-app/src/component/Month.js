@@ -9,7 +9,7 @@ import "moment/locale/zh-tw";
 moment.tz.setDefault("Asia/Taipei");
 
 function Month(props) {
-  const { date, setDate } = props;
+  const { date} = props;
   const today = moment();
   const [selectedDate, setSelectedDate] = useState(today);
   const timestamp = selectedDate.valueOf() / 1000;
@@ -19,10 +19,11 @@ function Month(props) {
   // 讀取firebase資料
   const [userEmail, setUserEmail] = useState("");
   const [listData, setListData] = useState([]);
+  const [smData, setSmData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
+  //* 月曆部分
   const todayOfWeek = moment().format("dddd");
-
   const [dayOfWeek, setDayOfWeek] = useState(todayOfWeek);
   const startOfMonth = moment(date).startOf("month").startOf("week");
   const endOfMonth = moment(date).endOf("month").endOf("week");
@@ -43,6 +44,7 @@ function Month(props) {
   };
   const formattedDate = selectedDate.format("DD");
 
+  //* user確認
   useEffect(() => {
     const userState = firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -51,6 +53,66 @@ function Month(props) {
     });
     return () => userState();
   }, []);
+
+  //* Daysm
+  useEffect(() => {
+    if (!userEmail) {
+      return; // 如果 userEmail 還沒被設定，不要進行資料庫操作
+    }
+    firebase
+      .firestore()
+      .collection("todolist")
+      .where("user", "==", userEmail)
+      .get()
+      .then((querySnapshot) => {
+        const newArray = [];
+        querySnapshot.forEach((doc) => {
+          const newItem = {
+            id: doc.id,
+            value: doc.data().thing,
+            color: doc.data().color,
+            date: doc.data().date,
+          };
+          newArray.push(newItem);
+        });
+        setSmData(newArray);
+      })
+      .catch((error) => {
+        console.log("Error getting documents: ", error);
+      });
+      const groupDataByDate = () => {
+        const dataByDate = {};
+        smData.forEach((item) => {
+          const dateStr = item.date.toDate().toLocaleDateString();
+          console.log(dateStr);
+          if (!dataByDate[dateStr]) {
+            dataByDate[dateStr] = [];
+          }
+          dataByDate[dateStr].push(item);
+        });
+        return dataByDate;
+      };
+      const dateData = groupDataByDate();
+  }, [userEmail]);
+
+  const groupDataByDate = () => {
+    const dataByDate = {};
+    smData.forEach((item) => {
+      const dateStr = item.date.toDate().toLocaleDateString();
+      console.log(dateStr);
+      if (!dataByDate[dateStr]) {
+        dataByDate[dateStr] = [];
+      }
+      dataByDate[dateStr].push(item);
+    });
+    console.log(dataByDate);
+    return dataByDate;
+  };
+  
+  const dateData = groupDataByDate();
+
+
+  //* Day資料
   useEffect(() => {
     if (!userEmail) {
       return; // 如果 userEmail 還沒被設定，不要進行資料庫操作
@@ -74,7 +136,6 @@ function Month(props) {
           };
           newArray.push(newItem);
           setListData(newArray);
-          // console.log(listData);
           // console.log(doc.id, " => ", doc.data().thing);
         });
         setListData(newArray);
@@ -84,7 +145,6 @@ function Month(props) {
         console.log("Error getting documents: ", error);
       });
   }, [selectedDate, userEmail]);
-  console.log(listData);
 
   return (
     <>
@@ -107,6 +167,7 @@ function Month(props) {
                 month={day.month() === date.month() ? "" : "month-other"}
                 onClick={() => dayClick(day, index)}
                 active={activeIndex === index}
+                data={dateData[day.toDate().toLocaleDateString()]}
               />
             ))}
           </div>

@@ -7,7 +7,7 @@ import Card from "../component/Card";
 function Index() {
   const [cardShow,setCardShow]=useState(false);
   const cardApper = () => {
-    setCardShow(!cardShow);
+    setCardShow(true);
   };
   return (
     <>
