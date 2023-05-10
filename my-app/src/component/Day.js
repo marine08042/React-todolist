@@ -12,7 +12,7 @@ function Day(props) {
                   {formattedDate}<span className='fs-6 ms-1'>/{dayOfWeek}</span>
               </div>
               <div className="wrap">
-                  <Control listData = {listData}/>
+                  <Control listData = {listData} date={date}/>
               </div>
         </div>
     </>

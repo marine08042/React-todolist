@@ -93,7 +93,7 @@ function Month(props) {
         return dataByDate;
       };
       const dateData = groupDataByDate();
-  }, [userEmail]);
+  }, [userEmail,smData]);
 
   const groupDataByDate = () => {
     const dataByDate = {};
