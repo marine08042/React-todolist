@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 
 function DaySm(props) {
-  const { date, month, onClick, active, data } = props;
+  const { date, month, onClick, active, data,onControlAdd } = props;
+  const handleControlAdd = () => {
+    onControlAdd(); // 執行回調函式
+  };
   return (
     <>
       <div className="p-1 position-relative  month-contain">
@@ -39,6 +42,13 @@ function DaySm(props) {
               )}
             </div>
           </div>
+          {props.children && (
+        <div>
+          {React.cloneElement(props.children, {
+            onAdd: handleControlAdd // 傳遞回調函式
+          })}
+        </div>
+      )}
         </div>
       </div>
     </>

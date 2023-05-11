@@ -95,6 +95,15 @@ body {
   transform: rotateY(180deg);
 }
 
+.marine {
+  width: 200px;
+  margin: 5rem auto 0;
+}
+
+.marine img {
+  border-radius: 50%;
+  width: 100%;
+}
 /** navbar */
 .navbar-color {
   background-color: rgb(175, 186, 207);

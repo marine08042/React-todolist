@@ -21,6 +21,7 @@ function Month(props) {
   const [listData, setListData] = useState([]);
   const [smData, setSmData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   //* 月曆部分
   const todayOfWeek = moment().format("dddd");
@@ -54,6 +55,15 @@ function Month(props) {
     return () => userState();
   }, []);
 
+  useEffect(() => {
+    if (refresh) {
+      setRefresh(false);
+    }
+  }, [refresh]);
+  const handleControlAdd = () => {
+    setRefresh(true);
+  };
+
   //* Daysm
   useEffect(() => {
     if (!userEmail) {
@@ -80,26 +90,12 @@ function Month(props) {
       .catch((error) => {
         console.log("Error getting documents: ", error);
       });
-      const groupDataByDate = () => {
-        const dataByDate = {};
-        smData.forEach((item) => {
-          const dateStr = item.date.toDate().toLocaleDateString();
-          console.log(dateStr);
-          if (!dataByDate[dateStr]) {
-            dataByDate[dateStr] = [];
-          }
-          dataByDate[dateStr].push(item);
-        });
-        return dataByDate;
-      };
-      const dateData = groupDataByDate();
-  }, [userEmail,smData]);
+  }, [userEmail,refresh]);
 
   const groupDataByDate = () => {
     const dataByDate = {};
     smData.forEach((item) => {
       const dateStr = item.date.toDate().toLocaleDateString();
-      console.log(dateStr);
       if (!dataByDate[dateStr]) {
         dataByDate[dateStr] = [];
       }
@@ -168,6 +164,7 @@ function Month(props) {
                 onClick={() => dayClick(day, index)}
                 active={activeIndex === index}
                 data={dateData[day.toDate().toLocaleDateString()]}
+                onControlAdd={handleControlAdd}
               />
             ))}
           </div>
@@ -302,6 +299,7 @@ function Month(props) {
               date={selectedDate}
               dayOfWeek={dayOfWeek}
               listData={listData}
+              onAdd={handleControlAdd}
             />
           )}
         </div>

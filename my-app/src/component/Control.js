@@ -10,10 +10,8 @@ function Control(props) {
   const [todoValue, setTodoValue] = useState("");
   const [color,setColor]=useState('red')
   const colorName = `color-${uuidv4()}`;
-  const{listData,date}=props
+  const{listData,date,onAdd}=props
   const timestamp = firebase.firestore.Timestamp.fromDate(date.toDate());
-
-  console.log(list);
 
   useEffect(()=>{
     setList(listData);
@@ -25,7 +23,7 @@ function Control(props) {
     return () => userState();
   },[])
 
-  const onAdd = (value) => {
+  const handleAdd = (value) => {
     const newItem={ id: uuidv4(), value: value, color: color };
     
     firebase.firestore().collection("todolist").add({
@@ -45,6 +43,7 @@ function Control(props) {
     const newArray = [...list, newItem];
     setList(newArray);
     setTodoValue("");
+    onAdd();
   };
   
   const todoChange = (event) => {
@@ -109,7 +108,7 @@ function Control(props) {
 
           <button
             className="btn submit"
-            onClick={() => onAdd(todoValue)}
+            onClick={() => handleAdd(todoValue)}
           >
             +
           </button>

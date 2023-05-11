@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import Login from "../component/Login";
 import "../component/css/todo.css";
 import Card from "../component/Card";
+import 'animate.css' 
 
 function Index() {
   const [cardShow,setCardShow]=useState(false);
@@ -79,6 +80,9 @@ function Index() {
           animate={cardShow}
         />
       </div>
+        <div className="marine rotateIn">
+          <img src={require('../img/marine.jpg')} alt="" className="rotateIn"/>
+        </div>
     </>
   );
 }
