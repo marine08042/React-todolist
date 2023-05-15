@@ -27,7 +27,6 @@ function Control(props) {
     const newItem={ id: uuidv4(), value: value, color: color };
     
     firebase.firestore().collection("todolist").add({
-      id:uuidv4(),
       thing: value,
       user: userEmail,
       color:color,

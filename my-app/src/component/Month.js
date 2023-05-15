@@ -82,6 +82,7 @@ function Month(props) {
             value: doc.data().thing,
             color: doc.data().color,
             date: doc.data().date,
+            status:doc.data().status,
           };
           newArray.push(newItem);
         });
@@ -129,6 +130,7 @@ function Month(props) {
             id: doc.id,
             value: doc.data().thing,
             color: doc.data().color,
+            status:doc.data().status,
           };
           newArray.push(newItem);
           setListData(newArray);

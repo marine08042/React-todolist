@@ -1,11 +1,25 @@
 import React, { useState } from "react";
 import './css/todo.css'
+import firebase from "../utils/firebase";
+import "firebase/compat/firestore";
 
 function Item(props) {
-  const [isChecked,setIsChecked]=useState(false)
-  const { value,color,thing } = props;
+  const { value,color,status,id } = props;
+  const [isChecked,setIsChecked]=useState(status)
+  
   function handleChange(){
-    setIsChecked(!isChecked)
+    const newChecked = !isChecked;
+    setIsChecked(newChecked);
+    const docRef = firebase.firestore().collection('todolist').doc(id);
+    docRef.update({
+      status: newChecked,
+    })
+    .then(() => {
+      console.log('Document updated successfully!');
+    })
+    .catch((error) => {
+      console.error('Error updating document:', error);
+    });
   }
   return (
     <>

@@ -11,7 +11,7 @@ function Content(props) {
           <ul className="d-flex  flex-column align-items-start list-unstyled">
           {list &&
               list.map((item) => (
-                <Item key={item.id} value={item.value} color={item.color} />
+                <Item key={item.id} value={item.value} color={item.color} status={item.status} id={item.id}/>
               ))}
           </ul>
         </div>
