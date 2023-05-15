@@ -302,6 +302,7 @@ function Month(props) {
               dayOfWeek={dayOfWeek}
               listData={listData}
               onAdd={handleControlAdd}
+              onUpdate={handleControlAdd}
             />
           )}
         </div>

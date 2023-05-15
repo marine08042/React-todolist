@@ -3,7 +3,7 @@ import React, { useState } from "react";
 function DaySm(props) {
   const { date, month, onClick, active, data,onControlAdd } = props;
   const handleControlAdd = () => {
-    onControlAdd(); // 執行回調函式
+    onControlAdd(); 
   };
   return (
     <>
@@ -15,7 +15,7 @@ function DaySm(props) {
             <div className="red">
               {!!data && data.map((i) =>
                 i.color === "red" ? (
-                  <input type="checkbox" className="todo-check" key={i.id}/>
+                  <input type="checkbox" className="todo-check" key={i.id} checked={i.status} readOnly/>
                 ) : null
               )}
             </div>
@@ -23,21 +23,21 @@ function DaySm(props) {
             <div className="blue">
             {!!data && data.map((i) =>
                 i.color === "blue" ? (
-                  <input type="checkbox" className="todo-check" key={i.id}/>
+                  <input type="checkbox" className="todo-check" key={i.id} checked={i.status} readOnly/>
                 ) : null
               )}
             </div>
             <div className="green">
             {!!data && data.map((i) =>
                 i.color === "green" ? (
-                  <input type="checkbox" className="todo-check" key={i.id}/>
+                  <input type="checkbox" className="todo-check" key={i.id} checked={i.status} readOnly/>
                 ) : null
               )}
             </div>
             <div className="yellow">
             {!!data && data.map((i) =>
                 i.color === "yellow" ? (
-                  <input type="checkbox" className="todo-check" key={i.id}/>
+                  <input type="checkbox" className="todo-check" key={i.id} checked={i.status} readOnly/>
                 ) : null
               )}
             </div>

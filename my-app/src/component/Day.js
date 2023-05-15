@@ -2,7 +2,7 @@ import React from 'react'
 import Control from './Control'
 
 function Day(props) {
-  const { date,dayOfWeek,listData,onAdd } = props;
+  const { date,dayOfWeek,listData,onAdd,onUpdate } = props;
   console.log(listData)
   const formattedDate = date.format("DD");
   return (
@@ -12,7 +12,7 @@ function Day(props) {
                   {formattedDate}<span className='fs-6 ms-1'>/{dayOfWeek}</span>
               </div>
               <div className="wrap">
-                  <Control listData = {listData} date={date} onAdd={onAdd}/>
+                  <Control listData = {listData} date={date} onAdd={onAdd} onUpdate={onUpdate}/>
               </div>
         </div>
     </>

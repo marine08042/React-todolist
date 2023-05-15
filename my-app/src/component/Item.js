@@ -4,7 +4,7 @@ import firebase from "../utils/firebase";
 import "firebase/compat/firestore";
 
 function Item(props) {
-  const { value,color,status,id } = props;
+  const { value,color,status,id,onUpdate } = props;
   const [isChecked,setIsChecked]=useState(status)
   
   function handleChange(){
@@ -16,6 +16,7 @@ function Item(props) {
     })
     .then(() => {
       console.log('Document updated successfully!');
+      onUpdate();
     })
     .catch((error) => {
       console.error('Error updating document:', error);

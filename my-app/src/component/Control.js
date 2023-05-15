@@ -10,7 +10,7 @@ function Control(props) {
   const [todoValue, setTodoValue] = useState("");
   const [color,setColor]=useState('red')
   const colorName = `color-${uuidv4()}`;
-  const{listData,date,onAdd}=props
+  const{listData,date,onAdd,onUpdate}=props
   const timestamp = firebase.firestore.Timestamp.fromDate(date.toDate());
 
   useEffect(()=>{
@@ -57,7 +57,7 @@ function Control(props) {
   return (
     <>
       <div className="row d-flex justify-content-center mb-4">
-        <Content list={list} />
+        <Content list={list} onUpdate={onUpdate}/>
       </div>
       <div className="addTodo">
         <div className="mb-3 d-flex">
