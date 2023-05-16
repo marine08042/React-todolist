@@ -37,7 +37,7 @@ function Login() {
   }
   return (
     <>
-      <form className="w-50 px-4 py-5 login my-5" onSubmit={onSubmit}>
+      <form className="w-75 w-sm-50 px-4 py-5 login my-5" onSubmit={onSubmit}>
         <div className="mb-3">
           <label htmlFor="exampleInputEmail1" className="form-label">
             帳號

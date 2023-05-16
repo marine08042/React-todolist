@@ -19,7 +19,7 @@ function Card(props) {
                 {icon}
                   <h6 className="mt-3">{title}</h6>
               </div>
-              <div className="back d-flex flex-column align-items-center justify-content-center">
+              <div className="back d-flex align-items-center">
                   {text}
               </div>
             </div>

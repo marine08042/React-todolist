@@ -35,14 +35,14 @@ function Navbar() {
           <div className="collapse navbar-collapse">
             
             {user ? (<>
-              <ul className="navbar-nav ml-auto mb-2 mb-lg-0 d-flex justify-content-between">
+              <ul className="navbar-nav ml-auto mb-0 d-flex justify-content-between">
               <li className="nav-item">
                 <Link className="nav-link" to="/todolist">
                   todolist
                 </Link>
               </li>
               </ul>
-              <ul className="navbar-nav ml-auto mb-2 mb-lg-0 d-flex justify-content-end">
+              <ul className="navbar-nav ml-auto mb-0 d-flex justify-content-end">
               <li className="nav-item">
                 <Link className="nav-link"  onClick={signOut}>
                   登出
