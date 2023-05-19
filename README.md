@@ -6,6 +6,8 @@
 1. 登入登出
 2. 點選行事曆，填寫代辦事項，並可照事件性質自由選擇顏色
 3. 讀取、新增、編輯firebase資料庫
+![image](https://github.com/marine08042/React-todolist/blob/main/Todo.gif)
+
 
 #### 使用技術
 react、firebase、bootstrap
